@@ -998,12 +998,46 @@ bdvkqlrh9eight6eightninehq7
 fivexpx1vsrreightkp7dph
 3eightlrrlgck967
 xcntwone4633sixmkm1nine`;
+let numerons = [`zero`, `one`, `two`, `three`, `four`, `five`, `six`, `seven`, `eight`, `nine`]
+let numeronsRev = [`orez`, `eno`, `owt`, `eerht`, `ruof`, `evif`, `xis`, `neves`, `thgie`, `enin`]
+function findFirst(string) {
+    let test = ``;
+    for(i = 0; i < string.length; i++) {
+        if(isFinite(parseInt(string[i]))) {
+            return(string[i])
+        }
+        else {
+            test = test + string[i];
+            for(k = 0; k < 10; k++) {
+                if(test.match(numerons[k])) {
+                    return(k)
+                }
+            }
+        }
+    }
+}
+function findLast(string) {
+    let test = ``;
+    for(i = string.length; i > 0; i--) {
+        if(isFinite(parseInt(string[i]))) {
+            return(string[i])
+        }
+        else {
+            test = test + string[i];
+            for(k = 0; k < 10; k++) {
+                if(test.match(numeronsRev[k])) {
+                    return(k)
+                }
+            }
+        }
+    }
+}
 
 input = input.split('\n');
 let total = 0;
 for(i = 0; i < input.length; i++) {
     input[i] = input[i].replaceAll(/\D/g, '')
     // console.log(input[i][0] + input[i][(input[i].length - 1)])
-    total = total + (parseInt(input[i][0] + input[i][(input[i].length - 1)]))
+    total = total + (parseInt(findFirst(input[i]) + findLast(input[i])))
 }
 console.log(total);
