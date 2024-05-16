@@ -998,6 +998,8 @@ bdvkqlrh9eight6eightninehq7
 fivexpx1vsrreightkp7dph
 3eightlrrlgck967
 xcntwone4633sixmkm1nine`;
+
+
 let numerons = [`zero`, `one`, `two`, `three`, `four`, `five`, `six`, `seven`, `eight`, `nine`]
 let numeronsRev = [`orez`, `eno`, `owt`, `eerht`, `ruof`, `evif`, `xis`, `neves`, `thgie`, `enin`]
 function findFirst(string) {
@@ -1010,7 +1012,7 @@ function findFirst(string) {
             test = test + string[i];
             for(k = 0; k < 10; k++) {
                 if(test.match(numerons[k])) {
-                    return(k)
+                    return(`${k}`)
                 }
             }
         }
@@ -1033,11 +1035,17 @@ function findLast(string) {
     }
 }
 
+
 input = input.split('\n');
 let total = 0;
-for(i = 0; i < input.length; i++) {
-    input[i] = input[i].replaceAll(/\D/g, '')
-    // console.log(input[i][0] + input[i][(input[i].length - 1)])
-    total = total + (parseInt(findFirst(input[i]) + findLast(input[i])))
+for(a = 0; a < input.length; a++) {
+    let line = input[a];
+    let num = findFirst(line) + findLast(line);
+    total = total + parseInt(num);
+    // console.log(line)
+    // console.log(num)
+    // console.log(parseInt(num))
+    // console.log(total)
 }
 console.log(total);
+// 54398
