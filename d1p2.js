@@ -1021,13 +1021,14 @@ function findFirst(string) {
 function findLast(string) {
     let test = ``;
     for(i = string.length; i > 0; i--) {
+        console.log(i)
         if(isFinite(parseInt(string[i]))) {
             return(string[i])
         }
         else {
             test = test + string[i];
             for(k = 0; k < 10; k++) {
-                if(test.match(numeronsRev[k])) {
+                if(test.match(numerons[k])) {
                     return(k)
                 }
             }
