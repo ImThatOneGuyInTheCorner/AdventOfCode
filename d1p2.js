@@ -999,39 +999,41 @@ fivexpx1vsrreightkp7dph
 3eightlrrlgck967
 xcntwone4633sixmkm1nine`;
 
+// let input = `two1nine
+// eightwothree
+// abcone2threexyz
+// xtwone3four
+// 4nineeightseven2
+// zoneight234
+// 7pqrstsixteen`
 
 let numerons = [`zero`, `one`, `two`, `three`, `four`, `five`, `six`, `seven`, `eight`, `nine`]
 let numeronsRev = [`orez`, `eno`, `owt`, `eerht`, `ruof`, `evif`, `xis`, `neves`, `thgie`, `enin`]
 function findFirst(string) {
     let test = ``;
     for(i = 0; i < string.length; i++) {
+        test = test + string[i];
+        for(k = 0; k < 10; k++) {
+            if(test.match(numerons[k])) {
+                return(`${k}`)
+            }
+        }
         if(isFinite(parseInt(string[i]))) {
             return(string[i])
-        }
-        else {
-            test = test + string[i];
-            for(k = 0; k < 10; k++) {
-                if(test.match(numerons[k])) {
-                    return(`${k}`)
-                }
-            }
         }
     }
 }
 function findLast(string) {
     let test = ``;
     for(i = string.length; i > 0; i--) {
-        console.log(i)
+        test = test + string[i];
+        for(k = 0; k < 10; k++) {
+            if(test.match(numeronsRev[k])) {
+                return(k)
+            }
+        }
         if(isFinite(parseInt(string[i]))) {
             return(string[i])
-        }
-        else {
-            test = test + string[i];
-            for(k = 0; k < 10; k++) {
-                if(test.match(numerons[k])) {
-                    return(k)
-                }
-            }
         }
     }
 }
@@ -1050,3 +1052,4 @@ for(a = 0; a < input.length; a++) {
 }
 console.log(total);
 // 54398
+// 51280
